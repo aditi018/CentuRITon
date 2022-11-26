@@ -60,5 +60,5 @@ app.get("/responsetime", function (req, res) {
       responseTime: calc(date, t1, date1, t2),
     });
   });
-  pdfParser.loadPDF("three.pdf");
+  pdfParser.loadPDF("two.pdf");
 });
