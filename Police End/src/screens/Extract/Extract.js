@@ -1,9 +1,8 @@
 import Tesseract from "tesseract.js";
 import { useState } from "react";
 import "./style.css";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
-import { FaUnderline } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Extract = () => {
   const [file, setFile] = useState();
@@ -12,7 +11,7 @@ const Extract = () => {
   const [language, setLanguage] = useState("en");
   const [tl, setTl] = useState();
   const [lang, setLang] = useState();
-  const [cogn, setCogn] = useState();
+  const [cogn, setCogn] = useState("");
   const [responseTime, setResponseTime] = useState();
 
   const onFileChange = (e) => {
@@ -71,21 +70,49 @@ const Extract = () => {
             "dead body",
             "killed",
             "truck",
+            "accused",
             "car",
             "hit",
             "ran",
             "rash",
             "recklessly",
           ];
-
+          const info = {
+            cogniz: (
+              <h1>
+                <b>
+                  Chances are high that the crime is a
+                  <span style={{ fontWeight: 900 }}> Cognizable Offence</span>
+                </b>
+                <br />
+                1.Accuse Can be arrested without any warrant.
+                <br />
+                2.Investigation should be started without any prior order from
+                the court.
+                <br />
+                3.The report must be given to the magistrate within 90 days (If
+                the punishment is more than 7 years)
+              </h1>
+            ),
+            noncogn: (
+              <h1>
+                <b>Non-Cognizable Offence:</b>
+                <br />
+                1.Accuse Can't be arrested without any warrant.
+                <br />
+                2.FIR can't be filed without the permission of magistrate.
+                <br />
+                3. Investigation can't be started without the permission of
+                magistrate.
+              </h1>
+            ),
+          };
           Cognizable.forEach((val) => {
             let position = help.search(val);
             console.log("val : ", val + "position:", position);
             if (position !== -1) {
               console.log("Cognizable FIR");
-              setCogn(
-                "Cognizable Offence:1.Accuse Can be arrested without any warrant. 2.Investigation should be started without any prior order from the court. 3.The report must be given to the magistrate within 90 days (If the punishment is more than 7 years)"
-              );
+              setCogn(info.cogniz);
             }
           });
 
@@ -103,31 +130,12 @@ const Extract = () => {
             console.log("val : ", val + "position:", position);
             if (position !== -1) {
               console.log("Non Cognizable FIR");
-              setCogn(
-                "Non-Cognizable Offence:\r\n" +
-                  "1.Accuse Can't be arrested without any warrant.\r\n" +
-                  "2.FIR can't be filed without the permission of magistrate.\r\n" +
-                  "3. Investigation can't be started without the permission of magistrate."
-              );
+              setCogn(info.noncogn);
             }
           });
 
           setLang(data.data.translations[0].translatedText);
           console.log(result);
-
-          fetch("http://127.0.0.1:5000/responsetime", {
-            method: "GET",
-            mode: "no-cors",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log("hi");
-              console.log(data);
-              setResponseTime(data);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -175,6 +183,7 @@ const Extract = () => {
           <div className="progress-bar">
             <progress value={progress} max={1} style={{ borderRadius: 15 }} />
           </div>
+          <button onClick={() => toast(cogn)}>Categorize</button>
         </section>
 
         <section
@@ -183,7 +192,6 @@ const Extract = () => {
             backgroundColor: "#d6c9af",
             borderRadius: 8,
             border: "1px solid white",
-            overflow: "hidden",
           }}
         >
           <h1>Extracted Data</h1>
@@ -199,7 +207,6 @@ const Extract = () => {
             backgroundColor: "#d6c9af",
             borderRadius: 8,
             border: "1px solid white",
-            overflow: "hidden",
           }}
         >
           <h1>English Output (Needs Review)</h1>
@@ -225,34 +232,15 @@ const Extract = () => {
             textDecoration: "underline",
           }}
         ></h1>
-        {/* Categorization
-       
-        <div
-          style={{
-            boxShadow: 2,
-            width: 900,
-            height: 200,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "row",
-            padding: 20,
-          }}
-        > */}
-        {/* <section
-            className="right3 card card-5"
-            style={{
-              backgroundColor: "#d6c9af",
-              borderRadius: 8,
-              border: "1px solid white",
-              overflow: "hidden",
-            }}
-          >
-            <h1>FIR has large chance of being:</h1>
-            <p className=" para">{cogn}</p>
-          </section> */}
-        {/* </div> */}
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={10000}
+        // hideProgressBar="true"
+        // pauseOnFocusLoss
+        draggable
+        // pauseOnHover
+      />
     </div>
   );
 };

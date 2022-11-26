@@ -157,3 +157,6 @@ input[type="file"] {
   position: relative;
   left: 93px;
 }
+card::-webkit-scrollbar {
+  display: none;
+}

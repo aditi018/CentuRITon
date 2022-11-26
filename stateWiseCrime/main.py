@@ -1,7 +1,5 @@
 from flask_restful import reqparse
 from flask import Flask, jsonify
-from io import BytesIO
-import tempfile
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 import cufflinks as cf
 from plotly.subplots import make_subplots
