@@ -69,5 +69,5 @@ app.get("/responsetime", function (req, res) {
 
     });
   });
-  pdfParser.loadPDF("two.pdf");
+  pdfParser.loadPDF("three.pdf");
 });
