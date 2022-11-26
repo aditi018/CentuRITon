@@ -149,6 +149,10 @@
   margin-top: 20px;
 }
 
+.para{
+  margin-right: 1.3rem;
+}
+
 input[type="file"] {
   position: relative;
   left: 93px;
