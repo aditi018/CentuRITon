@@ -13,6 +13,9 @@ import Translate from './components/Translate';
 import Analytics from './screens/Analytics/analytics';
 import Metrics from './screens/Metrics/metrics'
 
+
+
+
 const theme = createTheme({
   typography: {
     allVariants: {
@@ -50,6 +53,7 @@ function App() {
               <Route path='extract' element={<Extract />} />
               <Route path='translate' element={<Translate/>} />
               <Route path='analytics' element={<Analytics/>} />
+              
               <Route path='metrics' element={<Metrics/>}/>
 
             </Routes>

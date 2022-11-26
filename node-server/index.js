@@ -42,7 +42,8 @@ app.listen(app.get("port"), () => {
   console.log("server running on 5000");
 });
 
-app.get("/responsetime",upload.single("file"),function (req, res) {
+app.post("/responsetime",upload.single("file"),function (req, res) {
+
   let pdfParser = new PDFParser(this, 1);
   pdfParser.on("pdfParser_dataError", (errData) =>
     console.error(errData.parserError)
