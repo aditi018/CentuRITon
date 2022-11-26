@@ -32,7 +32,7 @@ const Analytics = () => {
           borderRadius: 5,
         }}
       >
-        <h1 style={{ fontWeight: 600, fontSize: 40, color: "black" }}>
+        <h1 style={{ fontWeight: 800, fontSize: 40, color: "black" }}>
           Number of murders in districts of Uttar Pradesh
         </h1>
         <iframe
@@ -53,9 +53,8 @@ const Analytics = () => {
           borderRadius: 5,
         }}
       >
-        <h1 style={{ fontWeight: 600, fontSize: 40, color: "black" }}>
-          Persons arrested in SLL crimes vs IPC crimes (Statewise) : <br />
-          Blue line - IPC, Red Line : SLL
+        <h1 style={{ fontWeight: 800, fontSize: 40, color: "black" }}>
+          Persons arrested in SLL crimes vs IPC crimes (Statewise)
         </h1>
         <iframe
           width="1400"
