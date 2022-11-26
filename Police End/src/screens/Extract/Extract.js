@@ -85,7 +85,9 @@ const Extract = () => {
             console.log("val : ", val + "position:", position);
             if (position !== -1) {
               console.log("Cognizable FIR");
-              setCogn("Cognizable Offence :1.Accuse Can be arrested without any warrant.\n 2.Investigation should be started without any prior order from the court.\n 3.The report must be given to the magistrate within 90 days (If the punishment is more than 7 years)");
+              setCogn(
+                "Cognizable Offence:1.Accuse Can be arrested without any warrant.<br> 2.Investigation should be started without any prior order from the court.\n 3.The report must be given to the magistrate within 90 days (If the punishment is more than 7 years)"
+              );
             }
           });
 
@@ -103,7 +105,9 @@ const Extract = () => {
             console.log("val : ", val + "position:", position);
             if (position !== -1) {
               console.log("Non Cognizable FIR");
-              setCogn("Non-Cognizable Offence :1.Accuse Can't be arrested without any warrant.\n 2.FIR can't be filed without the permission of magistrate.\n 3. Investigation can't be started without the permission of magistrate.");
+              setCogn(
+                "Non-Cognizable Offence :1.Accuse Can't be arrested without any warrant.\n 2.FIR can't be filed without the permission of magistrate.\n 3. Investigation can't be started without the permission of magistrate."
+              );
             }
           });
 
@@ -125,7 +129,7 @@ const Extract = () => {
           // };
 
           // console.log(payload2);
-         
+
           // fetch("http://127.0.0.1:5000/lang", {
           //   method: "POST",
           //   mode: "no-cors",
@@ -144,10 +148,10 @@ const Extract = () => {
           //     console.log(err);
           //   });
 
-          fetch('http://127.0.0.1:5000/responsetime',{
-            method:'GET'
+          fetch("http://127.0.0.1:5000/responsetime", {
+            method: "GET",
           })
-             .then((res) => res.json())
+            .then((res) => res.json())
             .then((data) => {
               console.log("hi");
               console.log(data);
@@ -156,12 +160,7 @@ const Extract = () => {
             .catch((err) => {
               console.log(err);
             });
-
-
         })
-
-       
-
 
         .catch((error) => {
           console.error("Error:", error);
@@ -235,7 +234,7 @@ const Extract = () => {
       </div>
 
       <div className="parent3">
-        <section className="middle3">
+        {/* <section className="middle3">
           <h1>The FIR has large chances of being:</h1>
           <p>{cogn}</p>
         </section>
@@ -247,13 +246,13 @@ const Extract = () => {
          <p>Information Date:{responseTime.infodate}</p>
          <p>Information Time:{responseTime.infotime}</p>
          <p>Response Time :{responseTime.responseTime}</p>  */}
-         {
+        {/* {
           console.log(responseTime)
-         }
-        </section>
+         } */}
+        {/* </section> */}
+        <h1>Fir Analysis</h1>
+        <h3>Chances are higher that the case is : {cogn}</h3>
       </div>
-
-
     </>
   );
 };
