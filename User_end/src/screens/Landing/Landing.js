@@ -7,10 +7,11 @@ function Landing() {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "95rem",
         color: "white",
         display: "flex",
         justifyContent: "center",
+        marginLeft: "4rem",
       }}
     >
       <Grid container sx={{ width: "100vw", height: `calc(100vh - 75px)` }}>
@@ -27,9 +28,9 @@ function Landing() {
             <Typewriter
               options={{
                 strings: [
-                  "Welcome to User Portal",
+                  "Welcome to the User Portal",
                   "You can check the status of your FIR",
-                  "You can also find your nearest police station"
+                  "You can also find your nearest police station",
                 ],
                 autoStart: true,
                 loop: true,
@@ -40,22 +41,20 @@ function Landing() {
         <Grid item xl={6} sx={{ display: "inline", justifyContent: "center" }}>
           <div
             style={{
-              marginTop:"70px",
-          
-              height: "75%",
-              width: "50%",
+              marginTop: "70px",
+
+              height: "32rem",
+              width: "23rem",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               backgroundImage: `url(${Image})`,
               backgroundSize: "cover",
-              backgroundRepeat:"none",
+              backgroundRepeat: "none",
               // border: '2px solid black',
               backgroundPosition: "left",
             }}
-          >
-          
-          </div>
+          ></div>
         </Grid>
       </Grid>
     </Box>
