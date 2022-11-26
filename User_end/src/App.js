@@ -12,7 +12,7 @@ import Map from "./screens/Map/Map"
 // import Translate from './components/Translate';
 import Status from "./screens/status/status";
 import Request from "./screens/request/request";
-
+import Upload from "./screens/uploadFIR/uploadFIR";
 const theme = createTheme({
   typography: {
     allVariants: {
@@ -51,7 +51,7 @@ function App() {
               {/* <Route path='translate' element={<Translate/>} /> */}
               <Route path = "status" element={<Status />}/>
               <Route path="request" element={<Request/>}/>
-
+              <Route path='uploadfir' element={<Upload/>}/>
             </Routes>
           </div>
         </UserContext.Provider>

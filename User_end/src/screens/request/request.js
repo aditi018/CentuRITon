@@ -33,7 +33,7 @@ function Request() {
             To file an E-FIR click here
             <br></br>
             <Btn
-              onClick={() => navigate("/request")}
+              onClick={() => navigate("/uploadfir")}
               style={{ width: 199, height: 35, fontSize: 19 }}
             >
               File an E-FIR
