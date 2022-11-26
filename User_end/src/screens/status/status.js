@@ -86,7 +86,7 @@ function Status() {
           item
           xl={6}
           sx={{
-            display: "inline",
+            display: "block",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
