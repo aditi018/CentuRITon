@@ -108,9 +108,9 @@ const Extract = () => {
               console.log("Non Cognizable FIR");
               setCogn(
                 "Non-Cognizable Offence:\r\n" +
-                "1.Accuse Can't be arrested without any warrant.\r\n" +
-                "2.FIR can't be filed without the permission of magistrate.\r\n" +
-                "3. Investigation can't be started without the permission of magistrate."
+                  "1.Accuse Can't be arrested without any warrant.\r\n" +
+                  "2.FIR can't be filed without the permission of magistrate.\r\n" +
+                  "3. Investigation can't be started without the permission of magistrate."
               );
             }
           });
@@ -173,7 +173,6 @@ const Extract = () => {
             backgroundColor: "#d6c9af",
             borderRadius: 8,
             border: "1px solid white",
-            overflow: "hidden",
           }}
         >
           <h1>Extracted Data</h1>
@@ -189,7 +188,6 @@ const Extract = () => {
             backgroundColor: "#d6c9af",
             borderRadius: 8,
             border: "1px solid white",
-            overflow: "hidden",
           }}
         >
           <h1>English Output (Needs Review)</h1>
@@ -222,7 +220,7 @@ const Extract = () => {
         // hideProgressBar="true"
         // pauseOnFocusLoss
         draggable
-      // pauseOnHover
+        // pauseOnHover
       />
     </div>
   );
