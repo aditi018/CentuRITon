@@ -242,14 +242,20 @@ const Extract = () => {
 
         <section className="middle3">
          <h1>Police Response time</h1>
-         {/* <p>FIR Date:{responseTime.firdate}</p>
-         <p>FIR Time:{responseTime.firtime}</p>
-         <p>Information Date:{responseTime.infodate}</p>
-         <p>Information Time:{responseTime.infotime}</p>
-         <p>Response Time :{responseTime.responseTime}</p>  */}
-         {
-          console.log(responseTime)
+         { responseTime!==undefined &&(
+          <>
+          <p>FIR Date:{responseTime.firdate}</p>
+          <p>FIR Time:{responseTime.firtime}</p>
+          <p>Information Date:{responseTime.infodate}</p>
+          <p>Information Time:{responseTime.infotime}</p>
+          <p>Response Time :{responseTime.responseTime}</p> 
+          </>
+
+         )
+           
          }
+         
+        
         </section>
       </div>
 
