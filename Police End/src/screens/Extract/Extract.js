@@ -147,7 +147,7 @@ const Extract = () => {
           fetch('http://127.0.0.1:5000/responsetime',{
             method:'GET'
           })
-             .then((res) => res.json())
+            .then((res) => res.json())
             .then((data) => {
               console.log("hi");
               console.log(data);
