@@ -1,6 +1,8 @@
 import Tesseract from "tesseract.js";
 import { useState } from "react";
 import "./style.css";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 import { FaUnderline } from "react-icons/fa";
 
 const Extract = () => {
@@ -102,7 +104,10 @@ const Extract = () => {
             if (position !== -1) {
               console.log("Non Cognizable FIR");
               setCogn(
-                "Non-Cognizable Offence:\r\n"+ "1.Accuse Can't be arrested without any warrant.\r\n" +"2.FIR can't be filed without the permission of magistrate.\r\n"+"3. Investigation can't be started without the permission of magistrate."
+                "Non-Cognizable Offence:\r\n" +
+                  "1.Accuse Can't be arrested without any warrant.\r\n" +
+                  "2.FIR can't be filed without the permission of magistrate.\r\n" +
+                  "3. Investigation can't be started without the permission of magistrate."
               );
             }
           });
@@ -188,7 +193,6 @@ const Extract = () => {
             </>
           )}
         </section>
-
         <section
           className="right3 card card-5"
           style={{
@@ -198,7 +202,7 @@ const Extract = () => {
             overflow: "hidden",
           }}
         >
-          <h1>English Output</h1>
+          <h1>English Output (Needs Review)</h1>
           {lang !== "" && (
             <>
               <p> {lang}</p>
@@ -220,9 +224,9 @@ const Extract = () => {
             fontSize: 21,
             textDecoration: "underline",
           }}
-        >
-          Categorization
-        </h1>
+        ></h1>
+        {/* Categorization
+       
         <div
           style={{
             boxShadow: 2,
@@ -234,20 +238,20 @@ const Extract = () => {
             flexDirection: "row",
             padding: 20,
           }}
-        >
-          <section
-          className="right3 card card-5"
-          style={{
-            backgroundColor: "#d6c9af",
-            borderRadius: 8,
-            border: "1px solid white",
-            overflow: "hidden",
-          }}
-        >
-          <h1>FIR has large chance of being:</h1>
-          <p className=" para">{cogn}</p>
-        </section>
-        </div>
+        > */}
+        {/* <section
+            className="right3 card card-5"
+            style={{
+              backgroundColor: "#d6c9af",
+              borderRadius: 8,
+              border: "1px solid white",
+              overflow: "hidden",
+            }}
+          >
+            <h1>FIR has large chance of being:</h1>
+            <p className=" para">{cogn}</p>
+          </section> */}
+        {/* </div> */}
       </div>
     </div>
   );
