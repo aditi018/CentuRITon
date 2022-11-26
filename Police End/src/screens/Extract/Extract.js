@@ -1,6 +1,8 @@
 import Tesseract from "tesseract.js";
 import { useState } from "react";
 import "./style.css";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 import { FaUnderline } from "react-icons/fa";
 
 const Extract = () => {
@@ -82,7 +84,7 @@ const Extract = () => {
             if (position !== -1) {
               console.log("Cognizable FIR");
               setCogn(
-                "Cognizable Offence:1.Accuse Can be arrested without any warrant.<br> 2.Investigation should be started without any prior order from the court.\n 3.The report must be given to the magistrate within 90 days (If the punishment is more than 7 years)"
+                "Cognizable Offence:1.Accuse Can be arrested without any warrant. 2.Investigation should be started without any prior order from the court. 3.The report must be given to the magistrate within 90 days (If the punishment is more than 7 years)"
               );
             }
           });
@@ -102,7 +104,10 @@ const Extract = () => {
             if (position !== -1) {
               console.log("Non Cognizable FIR");
               setCogn(
-                "Non-Cognizable Offence :1.Accuse Can't be arrested without any warrant.\n 2.FIR can't be filed without the permission of magistrate.\n 3. Investigation can't be started without the permission of magistrate."
+                "Non-Cognizable Offence:\r\n" +
+                  "1.Accuse Can't be arrested without any warrant.\r\n" +
+                  "2.FIR can't be filed without the permission of magistrate.\r\n" +
+                  "3. Investigation can't be started without the permission of magistrate."
               );
             }
           });
@@ -188,7 +193,6 @@ const Extract = () => {
             </>
           )}
         </section>
-
         <section
           className="right3 card card-5"
           style={{
@@ -198,7 +202,7 @@ const Extract = () => {
             overflow: "hidden",
           }}
         >
-          <h1>English Output</h1>
+          <h1>English Output (Needs Review)</h1>
           {lang !== "" && (
             <>
               <p> {lang}</p>
@@ -220,9 +224,9 @@ const Extract = () => {
             fontSize: 21,
             textDecoration: "underline",
           }}
-        >
-          Categorization
-        </h1>
+        ></h1>
+        {/* Categorization
+       
         <div
           style={{
             boxShadow: 2,
@@ -234,19 +238,20 @@ const Extract = () => {
             flexDirection: "row",
             padding: 20,
           }}
-        >
-          <section>
-            <h1
-              style={{
-                fontWeight: "bold",
-                fontSize: 15,
-              }}
-            >
-              The FIR has large chances of being:
-            </h1>
-            <p>{cogn}</p>
-          </section>
-        </div>
+        > */}
+        {/* <section
+            className="right3 card card-5"
+            style={{
+              backgroundColor: "#d6c9af",
+              borderRadius: 8,
+              border: "1px solid white",
+              overflow: "hidden",
+            }}
+          >
+            <h1>FIR has large chance of being:</h1>
+            <p className=" para">{cogn}</p>
+          </section> */}
+        {/* </div> */}
       </div>
     </div>
   );

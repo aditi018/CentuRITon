@@ -129,14 +129,14 @@ const Response = () => {
         </section> */}
       </div>
 
-      <div className="parent3">
+      {/* <div className="parent3">
 
-        <section className="middle3">
+        {/* <section className="middle3">
          
          
         
-        </section>
-      </div>
+        </section> */}
+      {/* </div> */} */
 
 
     </>

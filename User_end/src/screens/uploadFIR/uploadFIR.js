@@ -1,9 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React , {useState} from "react";
 import Typewriter from "typewriter-effect";
-import Image from "./confirm.png";
+import Image from "./upload.png";
 import styled from "styled-components";
 
 const Btn = styled.button`
@@ -22,10 +21,10 @@ const Btn = styled.button`
   }
 `;
 
-const StyledInput = styled.input`
+const StyledInput1 = styled.input`
   color: black;
-  width: 15rem;
-  height: 4rem;
+  width: 23rem;
+  height: 3rem;
   alignitems: center;
   padding: 5px;
   padding-left: 12px;
@@ -34,22 +33,33 @@ const StyledInput = styled.input`
   border: 1px solid lightblue;
 `;
 
+const StyledInput2 = styled.input`
+  color: black;
+  width: 23rem;
+  height: 4rem;
+  alignitems: center;
+  padding: 5px;
+  padding-left: 12px;
+  border-radius: 6px;
+  margin: 5px;
+  border: 1px solid lightblue;
+`;
 function useInput(defaultValue) {
-  const [value, setValue] = useState(defaultValue);
-  function onChange(e) {
-    setValue(e.target.value);
+    const [value, setValue] = useState(defaultValue);
+    function onChange(e) {
+      setValue(e.target.value);
+    }
+    return {
+      value,
+      onChange,
+    };
   }
-  return {
-    value,
-    onChange,
-  };
-}
-
-function Status() {
-  let navigate = useNavigate();
-  const inputProps = useInput();
-  return (
-    <Box
+  
+function UploadFIR()
+{   let navigate = useNavigate();
+    const inputProps = useInput();
+    return(
+        <Box
       sx={{
         width: "100%",
         color: "white",
@@ -79,8 +89,13 @@ function Status() {
             alignItems: "center",
           }}
         >
-          <StyledInput {...inputProps} placeholder="Enter Compaint No" />
-          <Btn onClick={() => navigate("/status")}>SUBMIT</Btn>
+          <StyledInput1 {...inputProps} placeholder="Enter complaintant's name" required />
+          <StyledInput1 {...inputProps} placeholder="Enter complaintant's address" required/>
+          <StyledInput1 {...inputProps} placeholder="Date and time of occurence of crime" required/>
+          <StyledInput1 {...inputProps} placeholder="Enter accused name if known" />
+          <StyledInput2 {...inputProps} placeholder="Enter accused address" />
+          <StyledInput2 {...inputProps} placeholder="Description of the crime" required/>
+          <Btn onClick={() => navigate("/status")}>Register an online complaint</Btn>
         </Grid>
         <Grid
           item
@@ -95,13 +110,13 @@ function Status() {
         >
           <img
             src={`${Image}`}
-            alt="Image"
-            style={{ width: "35rem", height: "35rem" }}
+            alt="abhi aaegi image"
+            style={{ width: "30rem", height: "30rem" }}
           />
         </Grid>
       </Grid>
     </Box>
-  );
+    )
 }
 
-export default Status;
+export default UploadFIR;
