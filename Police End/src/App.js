@@ -10,7 +10,8 @@ import Login from "./screens/Login/Login"
 import Extract from "./screens/Extract/Extract"
 import Map from "./screens/Map/Map"
 import Translate from './components/Translate';
-import Response from './screens/Response Analysis/ResponseAnalysis';
+import Analytics from './screens/Analytics/analytics';
+import Metrics from './screens/Metrics/metrics'
 
 const theme = createTheme({
   typography: {
@@ -48,7 +49,8 @@ function App() {
               <Route path='map' element={<Map />} />
               <Route path='extract' element={<Extract />} />
               <Route path='translate' element={<Translate/>} />
-              <Route path='response' element={<Response/>} />
+              <Route path='analytics' element={<Analytics/>} />
+              <Route path='metrics' element={<Metrics/>}/>
 
             </Routes>
           </div>

@@ -41,7 +41,8 @@ function Header() {
               value={value}
               onChange={(e, value) => setValue(value)}
             >
-              <Tab label='Analytics' onClick={() => navigate("/response")} />
+              <Tab label='MTTR Metrics' onClick={() => navigate("/metrics")} />
+              <Tab label='Analytics' onClick={() => navigate("/analytics")} />
               {/* <Tab label='Transliterate' onClick={() => navigate("/translate")} /> */}
               <Tab label="Extract Data" onClick={() => navigate("/extract")} />
               {/* <Tab label='Maps' onClick={() => navigate("/map")} /> */}
