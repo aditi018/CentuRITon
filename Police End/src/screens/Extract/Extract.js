@@ -11,7 +11,7 @@ const Extract = () => {
   const [language, setLanguage] = useState("en");
   const [tl, setTl] = useState();
   const [lang, setLang] = useState();
-  const [cogn, setCogn] = useState();
+  const [cogn, setCogn] = useState("");
   const [responseTime, setResponseTime] = useState();
 
   const onFileChange = (e) => {
@@ -24,10 +24,6 @@ const Extract = () => {
         "Please Use Screenshots of PDF (Not PDF)....This Feature is Yet to be Implemented"
       );
     }
-  };
-
-  const diffToast = (cogn) => {
-    toast(cogn);
   };
 
   const processImage = () => {
@@ -74,21 +70,49 @@ const Extract = () => {
             "dead body",
             "killed",
             "truck",
+            "accused",
             "car",
             "hit",
             "ran",
             "rash",
             "recklessly",
           ];
-
+          const info = {
+            cogniz: (
+              <h1>
+                <b>
+                  Chances are high that the crime is a
+                  <span style={{ fontWeight: 900 }}> Cognizable Offence</span>
+                </b>
+                <br />
+                1.Accuse Can be arrested without any warrant.
+                <br />
+                2.Investigation should be started without any prior order from
+                the court.
+                <br />
+                3.The report must be given to the magistrate within 90 days (If
+                the punishment is more than 7 years)
+              </h1>
+            ),
+            noncogn: (
+              <h1>
+                <b>Non-Cognizable Offence:</b>
+                <br />
+                1.Accuse Can't be arrested without any warrant.
+                <br />
+                2.FIR can't be filed without the permission of magistrate.
+                <br />
+                3. Investigation can't be started without the permission of
+                magistrate.
+              </h1>
+            ),
+          };
           Cognizable.forEach((val) => {
             let position = help.search(val);
             console.log("val : ", val + "position:", position);
             if (position !== -1) {
               console.log("Cognizable FIR");
-              setCogn(
-                "Cognizable Offence:1.Accuse Can be arrested without any warrant. 2.Investigation should be started without any prior order from the court. 3.The report must be given to the magistrate within 90 days (If the punishment is more than 7 years)"
-              );
+              setCogn(info.cogniz);
             }
           });
 
@@ -106,12 +130,7 @@ const Extract = () => {
             console.log("val : ", val + "position:", position);
             if (position !== -1) {
               console.log("Non Cognizable FIR");
-              setCogn(
-                "Non-Cognizable Offence:\r\n" +
-                  "1.Accuse Can't be arrested without any warrant.\r\n" +
-                  "2.FIR can't be filed without the permission of magistrate.\r\n" +
-                  "3. Investigation can't be started without the permission of magistrate."
-              );
+              setCogn(info.noncogn);
             }
           });
 
@@ -164,7 +183,7 @@ const Extract = () => {
           <div className="progress-bar">
             <progress value={progress} max={1} style={{ borderRadius: 15 }} />
           </div>
-          <button onClick={diffToast(cogn)}>Categorize</button>
+          <button onClick={() => toast(cogn)}>Categorize</button>
         </section>
 
         <section
@@ -215,7 +234,7 @@ const Extract = () => {
         ></h1>
       </div>
       <ToastContainer
-        position="top-left"
+        position="bottom-right"
         autoClose={10000}
         // hideProgressBar="true"
         // pauseOnFocusLoss
