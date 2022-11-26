@@ -1,6 +1,8 @@
 import Tesseract from "tesseract.js";
 import { useState } from "react";
 import "./style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Extract = () => {
   const [file, setFile] = useState();
@@ -22,6 +24,10 @@ const Extract = () => {
         "Please Use Screenshots of PDF (Not PDF)....This Feature is Yet to be Implemented"
       );
     }
+  };
+
+  const diffToast = (cogn) => {
+    toast(cogn);
   };
 
   const processImage = () => {
@@ -111,20 +117,6 @@ const Extract = () => {
 
           setLang(data.data.translations[0].translatedText);
           console.log(result);
-
-          fetch("http://127.0.0.1:5000/responsetime", {
-            method: "GET",
-            mode: "no-cors",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log("hi");
-              console.log(data);
-              setResponseTime(data);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -172,6 +164,7 @@ const Extract = () => {
           <div className="progress-bar">
             <progress value={progress} max={1} style={{ borderRadius: 15 }} />
           </div>
+          <button onClick={diffToast(cogn)}>Categorize</button>
         </section>
 
         <section
@@ -220,34 +213,15 @@ const Extract = () => {
             textDecoration: "underline",
           }}
         ></h1>
-        {/* Categorization
-       
-        <div
-          style={{
-            boxShadow: 2,
-            width: 900,
-            height: 200,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "row",
-            padding: 20,
-          }}
-        > */}
-        {/* <section
-            className="right3 card card-5"
-            style={{
-              backgroundColor: "#d6c9af",
-              borderRadius: 8,
-              border: "1px solid white",
-              overflow: "hidden",
-            }}
-          >
-            <h1>FIR has large chance of being:</h1>
-            <p className=" para">{cogn}</p>
-          </section> */}
-        {/* </div> */}
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={10000}
+        // hideProgressBar="true"
+        // pauseOnFocusLoss
+        draggable
+        // pauseOnHover
+      />
     </div>
   );
 };
