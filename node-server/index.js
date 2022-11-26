@@ -3,6 +3,22 @@ import calc from "./responsetime.js";
 const app = express();
 import bodyParser from "body-parser";
 import PDFParser from "pdf2json";
+import cors from 'cors'
+
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
 
 app.use(bodyParser.json());
 app.use(
