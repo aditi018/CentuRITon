@@ -10,6 +10,7 @@ const Extract = () => {
   const [tl, setTl] = useState();
   const [lang, setLang] = useState();
   const [cogn, setCogn] = useState();
+  const [responseTime, setResponseTime] = useState();
 
   // lang --> English Translated data
   // language --> detected language
@@ -110,38 +111,53 @@ const Extract = () => {
           console.log(result);
 
           //Removing the extra space
-          let removedSpaceText = result.trim().split(/ +/).join(" ");
-          console.log(removedSpaceText);
-          let removedNewLinesText = removedSpaceText.replace(
-            /(\r\n|\n|\r)/gm,
-            ""
-          );
-          console.log(removedNewLinesText);
+          // let removedSpaceText = result.trim().split(/ +/).join(" ");
+          // console.log(removedSpaceText);
+          // let removedNewLinesText = removedSpaceText.replace(
+          //   /(\r\n|\n|\r)/gm,
+          //   ""
+          // );
+          // console.log(removedNewLinesText);
 
-          const payload2 = {
-            Lang: language,
-            Text: removedNewLinesText,
-          };
+          // const payload2 = {
+          //   Lang: language,
+          //   Text: removedNewLinesText,
+          // };
 
-          console.log(payload2);
+          // console.log(payload2);
          
-          fetch("http://127.0.0.1:5000/lang", {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: payload2,
+          // fetch("http://127.0.0.1:5000/lang", {
+          //   method: "POST",
+          //   mode: "no-cors",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: payload2,
+          // })
+          //   .then((res) => res.json())
+          //   .then((data) => {
+          //     console.log("hi");
+          //     console.log(data);
+          //     setTl(data);
+          //   })
+          //   .catch((err) => {
+          //     console.log(err);
+          //   });
+
+          fetch('http://127.0.0.1:5000/responsetime',{
+            method:'GET'
           })
-            .then((res) => res.json())
+             .then((res) => res.json())
             .then((data) => {
               console.log("hi");
               console.log(data);
-              setTl(data);
+              setResponseTime(data);
             })
             .catch((err) => {
               console.log(err);
             });
+
+
         })
 
        
@@ -208,14 +224,14 @@ const Extract = () => {
           )}
         </section>
 
-        <section className="right3 card card-5">
+        {/* <section className="right3 card card-5">
           <h1>Transliterated Output</h1>
           {tl !== "" && (
             <>
               <p> {tl}</p>
             </>
           )}
-        </section>
+        </section> */}
       </div>
 
       <div className="parent3">
@@ -223,8 +239,27 @@ const Extract = () => {
           <h1>The FIR has large chances of being:</h1>
           <p>{cogn}</p>
         </section>
-        <section className="middle3"></section>
+
+        <section className="middle3">
+         <h1>Police Response time</h1>
+         { responseTime!==undefined &&(
+          <>
+          <p>FIR Date:{responseTime.firdate}</p>
+          <p>FIR Time:{responseTime.firtime}</p>
+          <p>Information Date:{responseTime.infodate}</p>
+          <p>Information Time:{responseTime.infotime}</p>
+          <p>Response Time :{responseTime.responseTime}</p> 
+          </>
+
+         )
+           
+         }
+         
+        
+        </section>
       </div>
+
+
     </>
   );
 };
