@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import Typewriter from "typewriter-effect";
-import Image from "./none.svg";
+import Image from "./home.png";
 
 function Landing() {
   return (

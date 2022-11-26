@@ -1,3 +1,6 @@
+import { Chart } from "react-google-charts";
+
+
 const Metrics = () => {
 
 }
