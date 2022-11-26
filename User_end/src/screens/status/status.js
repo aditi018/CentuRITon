@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import Typewriter from "typewriter-effect";
-import Image from "./confirm.jpg";
+import Image from "./confirm.png";
 import styled from "styled-components";
 
 const Btn = styled.button`
@@ -96,7 +96,7 @@ function Status() {
           <img
             src={`${Image}`}
             alt="Image"
-            style={{ width: "5rem", height: "5rem" }}
+            style={{ width: "35rem", height: "35rem" }}
           />
         </Grid>
       </Grid>

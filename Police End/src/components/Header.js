@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { AppBar, Box, Toolbar, Tab, Tabs, Typography } from "@mui/material"
-import { useNavigate } from "react-router-dom"
-import styled from "styled-components"
+import React, { useState } from "react";
+import { AppBar, Box, Toolbar, Tab, Tabs, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 function Header() {
-  const [value, setValue] = useState()
-  let navigate = useNavigate()
+  const [value, setValue] = useState();
+  let navigate = useNavigate();
   return (
     <React.Fragment>
       <AppBar
@@ -28,42 +28,39 @@ function Header() {
               cursor: "pointer",
             }}
           >
-           POLICE
+            POLICE
             <Typography sx={{ color: "orange", fontWeight: "bold" }}>
-             PORTAL
+              PORTAL
             </Typography>
           </Typography>
-{/* ------------------------------------------------------------------------------------------------------           */}
+          {/* ------------------------------------------------------------------------------------------------------           */}
           <Box sx={{ marginLeft: "auto", display: "flex" }}>
             <Tabs
-              indicatorColor='primary'
-              textColor='inherit'
+              indicatorColor="primary"
+              textColor="inherit"
               value={value}
               onChange={(e, value) => setValue(value)}
             >
-
-
-              <Tab label='Transliterate' onClick={() => navigate("/translate")} />
-              <Tab label='Extract Data' onClick={() => navigate("/extract")} />
-              <Tab label='Maps' onClick={() => navigate("/map")} />
               <Tab label='Analytics' onClick={() => navigate("/response")} />
+              {/* <Tab label='Transliterate' onClick={() => navigate("/translate")} /> */}
+              <Tab label="Extract Data" onClick={() => navigate("/extract")} />
+              {/* <Tab label='Maps' onClick={() => navigate("/map")} /> */}
             </Tabs>
 
-
             {/* <Btn onClick={() => navigate("/signup")}>SignUp</Btn> */}
-            <Btn onClick={() => navigate("/login")}>LogIn</Btn>
+            {/* <Btn onClick={() => navigate("/login")}>LogIn</Btn> */}
           </Box>
 
-{/* ---------------------------------------------------------------------------------------------------------- */}
+          {/* ---------------------------------------------------------------------------------------------------------- */}
         </Toolbar>
       </AppBar>
     </React.Fragment>
-  )
+  );
 }
 const Btn = styled.button`
   color: black;
   font-weight: 700;
-  background-color: #FC724D; 
+  background-color: #fc724d;
   padding: 2px 25px 2px 25px;
   border-radius: 30px;
   margin: 0px 5px 0px 5px;
@@ -71,6 +68,6 @@ const Btn = styled.button`
   &:hover {
     opacity: 0.9;
   }
-`
+`;
 
-export default Header
+export default Header;
