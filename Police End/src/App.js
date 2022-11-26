@@ -11,7 +11,8 @@ import Extract from "./screens/Extract/Extract"
 import Map from "./screens/Map/Map"
 import Translate from './components/Translate';
 import Analytics from './screens/Analytics/analytics';
-import Metrics from './screens/Metrics/metrics'
+import Metrics from './screens/Metrics/metrics';
+import States from './screens/States/States';
 
 
 
@@ -53,7 +54,7 @@ function App() {
               <Route path='extract' element={<Extract />} />
               <Route path='translate' element={<Translate/>} />
               <Route path='analytics' element={<Analytics/>} />
-              
+              <Route path='states' element={<States/>}/>
               <Route path='metrics' element={<Metrics/>}/>
 
             </Routes>
