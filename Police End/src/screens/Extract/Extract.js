@@ -150,6 +150,7 @@ const Extract = () => {
 
           fetch("http://127.0.0.1:5000/responsetime", {
             method: "GET",
+            mode: "no-cors",
           })
             .then((res) => res.json())
             .then((data) => {
@@ -234,24 +235,23 @@ const Extract = () => {
       </div>
 
       <div className="parent3">
-        {/* <section className="middle3">
+        <section className="middle3">
           <h1>The FIR has large chances of being:</h1>
           <p>{cogn}</p>
         </section>
 
         <section className="middle3">
-         <h1>Police Response time</h1>
-         {/* <p>FIR Date:{responseTime.firdate}</p>
-         <p>FIR Time:{responseTime.firtime}</p>
-         <p>Information Date:{responseTime.infodate}</p>
-         <p>Information Time:{responseTime.infotime}</p>
-         <p>Response Time :{responseTime.responseTime}</p>  */}
-        {/* {
-          console.log(responseTime)
-         } */}
-        {/* </section> */}
-        <h1>Fir Analysis</h1>
-        <h3>Chances are higher that the case is : {cogn}</h3>
+          <h1>Police Response time</h1>
+          {responseTime !== undefined && (
+            <>
+              <p>FIR Date:{responseTime.firdate}</p>
+              <p>FIR Time:{responseTime.firtime}</p>
+              <p>Information Date:{responseTime.infodate}</p>
+              <p>Information Time:{responseTime.infotime}</p>
+              <p>Response Time :{responseTime.responseTime}</p>
+            </>
+          )}
+        </section>
       </div>
     </>
   );
