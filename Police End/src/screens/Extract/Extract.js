@@ -174,7 +174,7 @@ const Extract = () => {
             <option value="pan">Punjab -- Punjabi</option>
             <option value="tel">Andhra Pradesh -- Telgu</option>
             <option value="ori">Orrisa -- Oriya</option>
-            <option value="mal">Kerela -- Malayam</option>
+            <option value="mal">Kerela -- Malyalam</option>
             <option value="guj">Gujrat -- Gujrati</option>
           </select>
 

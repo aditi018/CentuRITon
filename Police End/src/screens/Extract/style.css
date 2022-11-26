@@ -139,7 +139,6 @@
 }
 .middle3 p {
   height: 70%;
-  /* border: 2px solid black; */
   width: 100%;
   margin: 10px;
   color: rgb(10, 118, 10);
@@ -149,7 +148,7 @@
   margin-top: 20px;
 }
 
-.para{
+.para {
   margin-right: 1.3rem;
 }
 
