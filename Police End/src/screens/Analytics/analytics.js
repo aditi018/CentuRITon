@@ -1,18 +1,18 @@
 const Analytics = () => {
   return (
-    <>
-    <div
+    <div style={{ backgroundColor: "#EDEDED" }}>
+      <div
         style={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          margin: "6.5rem",
-          borderRadius: 5
+          padding: "6.5rem",
+          borderRadius: 5,
         }}
       >
-        <h1 style={{ fontWeight: 600, fontSize: 40, color: "black" }}>
-         States where maximum number of FIRs were registered 
+        <h1 style={{ fontWeight: 800, fontSize: 40, color: "black" }}>
+          States where maximum number of FIRs were registered
         </h1>
         <iframe
           width="700"
@@ -20,7 +20,6 @@ const Analytics = () => {
           frameborder="0"
           scrolling="no"
           src="//plotly.com/~keshab0402/9.embed"
-         
         ></iframe>
       </div>
       <div
@@ -30,8 +29,7 @@ const Analytics = () => {
           justifyContent: "center",
           alignItems: "center",
           margin: "6.5rem",
-          borderRadius: 5
-      
+          borderRadius: 5,
         }}
       >
         <h1 style={{ fontWeight: 600, fontSize: 40, color: "black" }}>
@@ -51,12 +49,12 @@ const Analytics = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          margin: "6.5rem",
-          borderRadius: 5
+          padding: "6.5rem",
+          borderRadius: 5,
         }}
       >
         <h1 style={{ fontWeight: 600, fontSize: 40, color: "black" }}>
-          Persons arrested in SLL crimes vs IPC crimes (Statewise) : <br/>
+          Persons arrested in SLL crimes vs IPC crimes (Statewise) : <br />
           Blue line - IPC, Red Line : SLL
         </h1>
         <iframe
@@ -67,8 +65,7 @@ const Analytics = () => {
           src="//plotly.com/~keshab0402/6.embed"
         ></iframe>
       </div>
-      
-    </>
+    </div>
   );
 };
 
