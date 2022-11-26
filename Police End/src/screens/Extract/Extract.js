@@ -1,9 +1,6 @@
 import Tesseract from "tesseract.js";
 import { useState } from "react";
 import "./style.css";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
-import { FaUnderline } from "react-icons/fa";
 
 const Extract = () => {
   const [file, setFile] = useState();
@@ -183,7 +180,6 @@ const Extract = () => {
             backgroundColor: "#d6c9af",
             borderRadius: 8,
             border: "1px solid white",
-            overflow: "hidden",
           }}
         >
           <h1>Extracted Data</h1>
@@ -199,7 +195,6 @@ const Extract = () => {
             backgroundColor: "#d6c9af",
             borderRadius: 8,
             border: "1px solid white",
-            overflow: "hidden",
           }}
         >
           <h1>English Output (Needs Review)</h1>
