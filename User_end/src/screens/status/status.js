@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import Typewriter from "typewriter-effect";
-import Image from "./none.svg";
+import Image from "./confirm.jpg";
 import styled from "styled-components";
 
 const Btn = styled.button`
@@ -62,20 +62,40 @@ function Status() {
         sx={{
           width: "100vw",
           height: `calc(100vh - 75px)`,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
+          // display: "flex",
+          // flexDirection: "column",
+          // justifyContent: "center",
+          // alignItems: "center",
         }}
       >
-        <Grid item xl={6} sx={{ display: "flex", justifyContent: "center" }}>
+        <Grid
+          item
+          xl={6}
+          sx={{
+            display: "flex",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <StyledInput {...inputProps} placeholder="Enter FIR No." />
           <Btn onClick={() => navigate("/status")}>SUBMIT</Btn>
         </Grid>
-        <Grid item xl={6} sx={{ display: "inline", justifyContent: "center" }}>
+        <Grid
+          item
+          xl={6}
+          sx={{
+            display: "block",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <img
-            src="./confirm.jpg"
-            alt="kaha gaya image"
+            src={`${Image}`}
+            alt="Image"
             style={{ width: "5rem", height: "5rem" }}
           />
         </Grid>
