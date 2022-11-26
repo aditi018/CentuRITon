@@ -20,7 +20,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-
+body {
+  background-color: rgb(104, 104, 104);
+}
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
