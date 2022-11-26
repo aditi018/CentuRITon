@@ -31,7 +31,6 @@ app.get("/responsetime", function (req, res) {
     let timeoffir = json_data.search(/\d\d\:\d\d/);
     let time = json_data.substring(timeoffir, timeoffir + 5);
   
-
     let start = json_data.search(/Information/);
     let end = json_data.search(/General/);
     let extracted = json_data.substring(start, end);
@@ -44,7 +43,7 @@ app.get("/responsetime", function (req, res) {
 
     var t1=time.substring(0,time.indexOf(':'));
     var t2=time1.substring(0,time1.indexOf(':'));
-    
+
     res.send({
       infodate: date1,
       infotime: time1,
@@ -54,5 +53,5 @@ app.get("/responsetime", function (req, res) {
 
     });
   });
-  pdfParser.loadPDF("three.pdf");
+  pdfParser.loadPDF("two.pdf");
 });
