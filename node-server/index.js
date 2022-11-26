@@ -4,21 +4,21 @@ const app = express();
 import bodyParser from "body-parser";
 import PDFParser from "pdf2json";
 import cors from "cors";
-import multer from 'multer';
-import path from "path"
-app.use(express.urlencoded({extended:true}));
+import multer from "multer";
+import path from "path";
+app.use(express.urlencoded({ extended: true }));
 
 const storage = multer.diskStorage({
-  destination:(req,file,cb)=>{
-    cb(null,"./");
+  destination: (req, file, cb) => {
+    cb(null, "./");
   },
-  filename:(req,file,cb)=>{
+  filename: (req, file, cb) => {
     console.log(file);
-    cb(null,file.originalname);
-  }
-})
+    cb(null, file.originalname);
+  },
+});
 
-const upload = multer({storage:storage})
+const upload = multer({ storage: storage });
 
 const corsOpts = {
   origin: "*",
@@ -42,8 +42,7 @@ app.listen(app.get("port"), () => {
   console.log("server running on 5000");
 });
 
-app.post("/responsetime",upload.single("file"),function (req, res) {
-
+app.post("/responsetime", upload.single("file"), function (req, res) {
   let pdfParser = new PDFParser(this, 1);
   pdfParser.on("pdfParser_dataError", (errData) =>
     console.error(errData.parserError)
@@ -78,5 +77,3 @@ app.post("/responsetime",upload.single("file"),function (req, res) {
   });
   pdfParser.loadPDF(req.file.originalname);
 });
-
-
